@@ -1,0 +1,74 @@
+---
+title: "Pingüinos en R"
+author: "Gustavo Bruges"
+date: "2022-12-27"
+categories: [posts]
+image: "Types-of-Penguins (1).jpg"
+---
+
+# Palmer penguins: Datos útiles para aprender con R
+
+![](ZO6OHHQ4WNATZJ63AJ7LQYU2JU.jpg)
+
+Si hay un conjunto de datos más utilizado por los científicos y analistas de datos mientras aprenden algo o enseñan a alguien, es iris (usuarios de R) o titanic (usuarios de Python).
+
+El conjunto de datos del iris no se utiliza sólo porque sea fácilmente accesible. También es algo que puedes usar para demostrar muchos conceptos de ciencia de datos como correlación, regresión, clasificación. El objetivo de este post es presentarte el conjunto de datos de los pingüinos y ponerte en marcha con unos cuantos fragmentos de código para que puedas despegar tú mismo.
+
+Muy recientemente, ha habido un sentimiento creciente en la comunidad para alejarse de iris debido al pasado eugenista de Ronald Fisher.
+
+En este preciso momento, tenemos la suerte de contar con otro conjunto de datos similar al iris: pingüinos.
+
+## Carga de paquetes
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(palmerpenguins)
+library(GGally)
+
+```
+
+## Accediendo a los datos
+
+```{r}
+#Visionado de los datos
+glimpse(penguins)
+```
+
+## Definición de la columna de datos de penguins
+
+**species:** una variable categórica (fct) denota la especie de pingüino (Adelie, Chinstrap y Gentoo)
+
+**island:** una variable categórica (fct) que indica la isla en el archipiélago Palmer, Antártida (Biscoe, Dream o Torgersen)
+
+**bill_length_mm:** número que indica la longitud del pico (milímetros)
+
+**bill_depth_mm**: número que indica la profundidad del pico (milímetros)
+
+**flipper_length_mm:** número entero que indica la longitud de la aleta (milímetros)
+
+**body_mass_g:** número entero que indica la masa corporal (gramos)
+
+**sex:** una variable categórica (fct) denota el sexo del pingüino (hembra, macho)
+
+Cargar paquetes tidyverse, GGally y palmerpenguins
+
+```{r}
+library(tidyverse)
+library(GGally)
+library(palmerpenguins)
+library(skimr)
+```
+
+## Exploración del conjunto de datos
+
+```{r}
+skim(penguins)
+```
+
+GGally, para evaluar las relaciones dentro del conjunto de datos
+
+```{r message=FALSE, warning=FALSE}
+ggpairs(penguins, aes(color = species))
+```
+
+Con esta visualización previa podemos relaciones importantes en características morfológicas de las tres especies e incluso dimorfismo sexual.

@@ -1,0 +1,24 @@
+---
+title: "R español"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+---
+
+Bienvenidos a R español. Aquí encontrarás los cuadernos de trabajo de los tutoriales del canal.
+
+Para descargar la última versión de R debes dirigirte a:
+
+<https://cran.r-project.org>
+
+Utilizamos el ambiente RStudio, conocido como ahora como
+
+[Posit](https://posit.co)
+
+![](images/thumbnail-63.jpg)

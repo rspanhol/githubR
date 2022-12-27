@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Acerca de este blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R español",
+    "section": "",
+    "text": "Bienvenidos a R español. Aquí encontrarás los cuadernos de trabajo de los tutoriales del canal.\nPara descargar la última versión de R debes dirigirte a:\nhttps://cran.r-project.org\nUtilizamos el ambiente RStudio, conocido como ahora como\nPosit\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\nPingüinos en R\n\n\n\n\n\n\n\nposts\n\n\n\n\n\n\n\n\n\n\n\nDec 27, 2022\n\n\nGustavo Bruges\n\n\n\n\n\n\n  \n\n\n\n\nBienvenido a mi Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nDec 24, 2022\n\n\nR Español\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Ejemplos de código en R",
+    "section": "",
+    "text": "Si hay un conjunto de datos más utilizado por los científicos y analistas de datos mientras aprenden algo o enseñan a alguien, es iris (usuarios de R) o titanic (usuarios de Python).\nEl conjunto de datos del iris no se utiliza sólo porque sea fácilmente accesible. También es algo que puedes usar para demostrar muchos conceptos de ciencia de datos como correlación, regresión, clasificación. El objetivo de este post es presentarte el conjunto de datos de los pingüinos y ponerte en marcha con unos cuantos fragmentos de código para que puedas despegar tú mismo.\nMuy recientemente, ha habido un sentimiento creciente en la comunidad para alejarse de iris debido al pasado eugenista de Ronald Fisher.\nEn este preciso momento, tenemos la suerte de contar con otro conjunto de datos similar al iris: pingüinos."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#carga-de-paquetes",
+    "href": "posts/post-with-code/index.html#carga-de-paquetes",
+    "title": "Ejemplos de código en R",
+    "section": "Carga de paquetes",
+    "text": "Carga de paquetes\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\nlibrary(GGally)"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#accediendo-a-los-datos",
+    "href": "posts/post-with-code/index.html#accediendo-a-los-datos",
+    "title": "Ejemplos de código en R",
+    "section": "Accediendo a los datos",
+    "text": "Accediendo a los datos\n\n#Visionado de los datos\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n$ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…\n$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …\n$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …\n$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…\n$ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …\n$ sex               <fct> male, female, female, NA, female, male, female, male…\n$ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#definición-de-la-columna-de-datos-de-penguins",
+    "href": "posts/post-with-code/index.html#definición-de-la-columna-de-datos-de-penguins",
+    "title": "Ejemplos de código en R",
+    "section": "Definición de la columna de datos de penguins",
+    "text": "Definición de la columna de datos de penguins\nspecies: una variable categórica (fct) denota la especie de pingüino (Adelie, Chinstrap y Gentoo)\nisland: una variable categórica (fct) que indica la isla en el archipiélago Palmer, Antártida (Biscoe, Dream o Torgersen)\nbill_length_mm: número que indica la longitud del pico (milímetros)\nbill_depth_mm: número que indica la profundidad del pico (milímetros)\nflipper_length_mm: número entero que indica la longitud de la aleta (milímetros)\nbody_mass_g: número entero que indica la masa corporal (gramos)\nsex: una variable categórica (fct) denota el sexo del pingüino (hembra, macho)\nCargar paquetes tidyverse, GGally y palmerpenguins\n\nlibrary(tidyverse)\nlibrary(GGally)\nlibrary(palmerpenguins)\nlibrary(skimr)"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html#exploración-del-conjunto-de-datos",
+    "href": "posts/post-with-code/index.html#exploración-del-conjunto-de-datos",
+    "title": "Ejemplos de código en R",
+    "section": "Exploración del conjunto de datos",
+    "text": "Exploración del conjunto de datos\n\nskim(penguins)\n\n\nData summary\n\n\nName\npenguins\n\n\nNumber of rows\n344\n\n\nNumber of columns\n8\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\nfactor\n3\n\n\nnumeric\n5\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: factor\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nordered\nn_unique\ntop_counts\n\n\n\n\nspecies\n0\n1.00\nFALSE\n3\nAde: 152, Gen: 124, Chi: 68\n\n\nisland\n0\n1.00\nFALSE\n3\nBis: 168, Dre: 124, Tor: 52\n\n\nsex\n11\n0.97\nFALSE\n2\nmal: 168, fem: 165\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nbill_length_mm\n2\n0.99\n43.92\n5.46\n32.1\n39.23\n44.45\n48.5\n59.6\n▃▇▇▆▁\n\n\nbill_depth_mm\n2\n0.99\n17.15\n1.97\n13.1\n15.60\n17.30\n18.7\n21.5\n▅▅▇▇▂\n\n\nflipper_length_mm\n2\n0.99\n200.92\n14.06\n172.0\n190.00\n197.00\n213.0\n231.0\n▂▇▃▅▂\n\n\nbody_mass_g\n2\n0.99\n4201.75\n801.95\n2700.0\n3550.00\n4050.00\n4750.0\n6300.0\n▃▇▆▃▂\n\n\nyear\n0\n1.00\n2008.03\n0.82\n2007.0\n2007.00\n2008.00\n2009.0\n2009.0\n▇▁▇▁▇\n\n\n\n\n\nGGally, para evaluar las relaciones dentro del conjunto de datos\n\nggpairs(penguins, aes(color = species))"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Bienvenido a mi Blog",
+    "section": "",
+    "text": "Bienvenidos a R Español!"
+  }
+]
